@@ -22,10 +22,8 @@ public class Main {
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         List<Employee> list = parseXML(FILE_NAME_SRC);
-
         String json = listToJson(list);
         writeString(json, FILE_NAME_DEST);
-
     }
 
     private static List<Employee> parseXML(String fileName) throws ParserConfigurationException, IOException, SAXException {
@@ -68,8 +66,7 @@ public class Main {
 
     static String listToJson(List<Employee> list) {
         Gson gson = new Gson();
-        Type listType = new TypeToken<List<Employee>>() {
-        }.getType();
+        Type listType = new TypeToken<List<Employee>>() {}.getType();
         return gson.toJson(list, listType);
     }
 
